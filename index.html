@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Breathing Light Demo</title>
+<style>
+  :root {
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    background: #0a0e27;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .breathing-light {
+    width: 64px;
+    height: 64px;
+    background: #ffffff;
+    border-radius: 100%;
+    filter: blur(10px);
+    animation: breathe 5s ease-in-out infinite;
+  }
+
+  @keyframes breathe {
+    0% {
+      opacity: 0.2;
+      filter: blur(10px);
+      animation-timing-function: cubic-bezier(0.597, 0.011, 0.686, 0.961); /* inhale */
+    }
+    32% {
+      opacity: 1;
+      filter: blur(16px);
+      animation-timing-function: cubic-bezier(0.314, 0.039, 0.403, 0.989); /* exhale */
+    }
+    88% {
+      opacity: 0.2;
+      filter: blur(10px);
+      animation-timing-function: linear; /* pause, held flat */
+    }
+    100% {
+      opacity: 0.2;
+      filter: blur(10px);
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="breathing-light"></div>
+</body>
+</html>
